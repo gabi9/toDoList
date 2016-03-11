@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html data-ng-app="myList">
+<head>
+<meta charset="UTF-8">
+<title>todo Valentines</title>
+<link rel="stylesheet" href="CSS/todochristmas.css">
+<script src="LIB/Angular.js"></script>
+</head>
+
+<body>
+
+<div id="container" data-ng-controller="listCtrl">
+ 
+  <div id="header">
+   
+    <h1>My Valentines Love List</h1>
+  
+  </div>
+  
+
+<form  name="form" data-ng-submit="addTask()">
+  
+   <div id="inputContainer">
+    <input  type="text" id="taskInput" placeholder="Add a task" maxlength="40" data-ng-model="taskInput" required />
+  </div>
+  
+  <div id="deleteBtnWrapper" >
+    <button id="deleteCompletedBtn" data-ng-click="deleteCompleted()">Delete Completed</button>
+    <button  id="addTaskBtn">Add Me</button>
+   </div>
+  </form>
+  
+  <div id="listWrapper">
+    <ul id="taskList">
+    <li data-ng-repeat="myList in todoList">
+    <input type="checkbox" id="taskCheckbox" data-ng-model="myList.done" > 
+    <span data-ng-class="{'done':myList.done}">{{myList.title}}</span>
+    <input type="button" data-ng-click="removeItem($index)" value="delete Now" id="dlteItembtn">
+    </li>
+    
+    </ul>
+  </div>
+  
+
+</div>
+
+
+
+
+<script src="javascript/todoList.js"></script>
+</body>
+</html>
